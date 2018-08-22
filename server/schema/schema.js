@@ -22,6 +22,7 @@ const WodType = new GraphQLObjectType({
       resolve(parent, args) {
         console.log('PARENT: ', parent);
         //return _.find(groups, { id: parent.groupId });
+        return Group.findById(parent.groupId);
       }
     }
   })
@@ -36,6 +37,7 @@ const GroupType = new GraphQLObjectType({
       type: new GraphQLList(WodType),
       resolve(parent, args) {
         //return _.filter(wods, { groupId: parent.id });
+        return Wod.find({ groupId: parent.id });
       }
     }
   })
@@ -50,6 +52,7 @@ const RootQuery = new GraphQLObjectType({
       resolve(parent, args) {
         // code to get data from DB
         //return _.find(wods, { id: args.id });
+        return Wod.findById(args.id);
       }
     },
     group: {
@@ -57,18 +60,21 @@ const RootQuery = new GraphQLObjectType({
       args: { id: { type: GraphQLID } },
       resolve(parent, args) {
         //return _.find(groups, { id: args.id });
+        return Group.findById(args.id);
       }
     },
     wods: {
       type: new GraphQLList(WodType),
       resolve(parent, args) {
         //return wods;
+        return Wod.find({});
       }
     },
     groups: {
       type: new GraphQLList(GroupType),
       resolve(parent, args) {
         //return groups;
+        return Group.find({});
       }
     }
   }
@@ -81,16 +87,32 @@ const Mutation = new GraphQLObjectType({
       type: WodType,
       args: {
         name: { type: GraphQLString },
-        difficulty: { type: GraphQLString }
+        difficulty: { type: GraphQLString },
+        groupId: { type: GraphQLID }
       },
       resolve(parent, args) {
-        // Use model to create new Wod
         let wod = new Wod({
+          // Use model to create new Wod
           name: args.name,
-          difficulty: args.difficulty
+          difficulty: args.difficulty,
+          groupId: args.groupId
         });
         // Save to database
         return wod.save();
+      }
+    },
+    addGroup: {
+      type: GroupType,
+      args: {
+        name: { type: GraphQLString }
+      },
+      resolve(parent, args) {
+        // Use model to create new Wod
+        let group = new Group({
+          name: args.name
+        });
+        // Save to database
+        return group.save();
       }
     }
   }

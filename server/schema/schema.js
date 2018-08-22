@@ -8,7 +8,8 @@ const {
   GraphQLString,
   GraphQLSchema,
   GraphQLID,
-  GraphQLList
+  GraphQLList,
+  GraphQLNonNull
 } = graphql;
 
 const WodType = new GraphQLObjectType({
@@ -86,9 +87,9 @@ const Mutation = new GraphQLObjectType({
     addWod: {
       type: WodType,
       args: {
-        name: { type: GraphQLString },
-        difficulty: { type: GraphQLString },
-        groupId: { type: GraphQLID }
+        name: { type: new GraphQLNonNull(GraphQLString) },
+        difficulty: { type: new GraphQLNonNull(GraphQLString) },
+        groupId: { type: new GraphQLNonNull(GraphQLID) }
       },
       resolve(parent, args) {
         let wod = new Wod({
@@ -104,7 +105,7 @@ const Mutation = new GraphQLObjectType({
     addGroup: {
       type: GroupType,
       args: {
-        name: { type: GraphQLString }
+        name: { type: new GraphQLNonNull(GraphQLString) }
       },
       resolve(parent, args) {
         // Use model to create new Wod

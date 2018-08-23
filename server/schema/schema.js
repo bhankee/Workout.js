@@ -15,7 +15,7 @@ const {
 const WodType = new GraphQLObjectType({
   name: 'Wod',
   fields: () => ({
-    id: { type: GraphQLString },
+    id: { type: GraphQLID },
     name: { type: GraphQLString },
     difficulty: { type: GraphQLString },
     group: {
@@ -32,7 +32,7 @@ const WodType = new GraphQLObjectType({
 const GroupType = new GraphQLObjectType({
   name: 'Group',
   fields: () => ({
-    id: { type: GraphQLString },
+    id: { type: GraphQLID },
     name: { type: GraphQLString },
     wods: {
       type: new GraphQLList(WodType),

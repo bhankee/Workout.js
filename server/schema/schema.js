@@ -21,8 +21,6 @@ const WodType = new GraphQLObjectType({
     group: {
       type: GroupType,
       resolve(parent, args) {
-        console.log('PARENT: ', parent);
-        //return _.find(groups, { id: parent.groupId });
         return Group.findById(parent.groupId);
       }
     }
@@ -37,7 +35,6 @@ const GroupType = new GraphQLObjectType({
     wods: {
       type: new GraphQLList(WodType),
       resolve(parent, args) {
-        //return _.filter(wods, { groupId: parent.id });
         return Wod.find({ groupId: parent.id });
       }
     }
@@ -51,8 +48,6 @@ const RootQuery = new GraphQLObjectType({
       type: WodType,
       args: { id: { type: GraphQLID } },
       resolve(parent, args) {
-        // code to get data from DB
-        //return _.find(wods, { id: args.id });
         return Wod.findById(args.id);
       }
     },
@@ -60,21 +55,18 @@ const RootQuery = new GraphQLObjectType({
       type: GroupType,
       args: { id: { type: GraphQLID } },
       resolve(parent, args) {
-        //return _.find(groups, { id: args.id });
         return Group.findById(args.id);
       }
     },
     wods: {
       type: new GraphQLList(WodType),
       resolve(parent, args) {
-        //return wods;
         return Wod.find({});
       }
     },
     groups: {
       type: new GraphQLList(GroupType),
       resolve(parent, args) {
-        //return groups;
         return Group.find({});
       }
     }

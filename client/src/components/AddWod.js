@@ -1,6 +1,10 @@
 import React, { Component } from 'react';
-import { graphql } from 'react-apollo';
-import { getGroupsQuery } from '../queries/queries';
+import { graphql, compose } from 'react-apollo';
+import {
+  getGroupsQuery,
+  addWodMutation,
+  getWodsQuery
+} from '../queries/queries';
 
 class AddWod extends Component {
   state = {
@@ -9,7 +13,8 @@ class AddWod extends Component {
     groupId: ''
   };
   displayGroups() {
-    let data = this.props.data;
+    let data = this.props.getGroupsQuery;
+
     if (data.loading) {
       return <option>Loading Groups...</option>;
     } else {
@@ -34,20 +39,34 @@ class AddWod extends Component {
   };
   submitForm = e => {
     e.preventDefault();
-    console.log('STATE ON FORM SUBMIT: ', this.state);
+    this.props.addWodMutation({
+      variables: {
+        name: this.state.name,
+        difficulty: this.state.difficulty,
+        groupId: this.state.groupId
+      },
+      refetchQueries: [{ query: getWodsQuery }]
+    });
   };
 
   render() {
-    console.log(this.props.data.wods);
     return (
       <form onSubmit={this.submitForm}>
         <div className="field">
           <label>Workout Name:</label>
-          <input type="text" onChange={this.handleName} />
+          <input
+            value={this.state.name}
+            type="text"
+            onChange={this.handleName}
+          />
         </div>
         <div className="field">
           <label>Difficulty:</label>
-          <input type="text" onChange={this.handleDifficulty} />
+          <input
+            value={this.state.difficulty}
+            type="text"
+            onChange={this.handleDifficulty}
+          />
         </div>
         <div className="field">
           <label>API Group:</label>
@@ -62,4 +81,7 @@ class AddWod extends Component {
   }
 }
 
-export default graphql(getGroupsQuery)(AddWod);
+export default compose(
+  graphql(getGroupsQuery, { name: 'getGroupsQuery' }),
+  graphql(addWodMutation, { name: 'addWodMutation' })
+)(AddWod);

@@ -8,24 +8,30 @@ class WodList extends Component {
   state = {
     selected: null
   };
-  displayWods() {
+
+  displayWods = () => {
     let data = this.props.data;
-    console.log('WOD DATA PROPS: ', data.wods);
+
     if (data.loading) {
       return <div>warming up...</div>;
     } else {
       return data.wods.map(wod => {
         console.log('WOD: ', wod);
-        return <li key={wod.id}>{wod.name}</li>;
+        return (
+          <li key={wod.id} onClick={e => this.setState({ selected: wod.id })}>
+            {wod.name}
+          </li>
+        );
       });
     }
-  }
+  };
   render() {
+    console.log('CURRENT BOOK ID: ', this.props);
     console.log(this.props.data.wods);
     return (
       <div>
         <ul>{this.displayWods()}</ul>
-        <WodDetails />
+        <WodDetails wodId={this.state.selected} />
       </div>
     );
   }

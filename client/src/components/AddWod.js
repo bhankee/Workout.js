@@ -82,6 +82,6 @@ class AddWod extends Component {
 }
 
 export default compose(
-  graphql(getGroupsQuery, { name: 'getGroupsQuery' }),
-  graphql(addWodMutation, { name: 'addWodMutation' })
+  graphql(getGroupsQuery, { name: 'getGroupsQuery' })
+  /* graphql(addWodMutation, { name: 'addWodMutation' })*/
 )(AddWod);

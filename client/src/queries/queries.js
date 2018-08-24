@@ -5,6 +5,7 @@ const getWodsQuery = gql`
     wods {
       id
       name
+      movements
       difficulty
     }
   }
@@ -19,7 +20,7 @@ const getGroupsQuery = gql`
   }
 `;
 
-const addWodMutation = gql`
+/*const addWodMutation = gql`
   mutation($name: String!, $difficulty: String!, $groupId: ID!) {
     addWod(name: $name, difficulty: $difficulty, groupId: $groupId) {
       name
@@ -27,18 +28,24 @@ const addWodMutation = gql`
     }
   }
 `;
+*/
 
 const getWodQuery = gql`
   query($id: ID) {
     wod(id: $id) {
       id
       name
+      movements
       difficulty
       group {
         name
+        wods {
+          name
+          difficulty
+        }
       }
     }
   }
 `;
 
-export { getWodsQuery, getGroupsQuery, addWodMutation, getWodQuery };
+export { getWodsQuery, getGroupsQuery, getWodQuery };

@@ -17,6 +17,7 @@ const WodType = new GraphQLObjectType({
   fields: () => ({
     id: { type: GraphQLID },
     name: { type: GraphQLString },
+    movements: { type: GraphQLString },
     difficulty: { type: GraphQLString },
     group: {
       type: GroupType,
@@ -80,6 +81,7 @@ const Mutation = new GraphQLObjectType({
       type: WodType,
       args: {
         name: { type: new GraphQLNonNull(GraphQLString) },
+        movements: { type: new GraphQLNonNull(GraphQLList(GraphQLString)) },
         difficulty: { type: new GraphQLNonNull(GraphQLString) },
         groupId: { type: new GraphQLNonNull(GraphQLID) }
       },
@@ -87,6 +89,7 @@ const Mutation = new GraphQLObjectType({
         let wod = new Wod({
           // Use model to create new Wod
           name: args.name,
+          movements: args.movements,
           difficulty: args.difficulty,
           groupId: args.groupId
         });

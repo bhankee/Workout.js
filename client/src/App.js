@@ -18,7 +18,6 @@ class App extends Component {
         <div className="App">
           <h1> JS Wods</h1>
           <WodList />
-          <AddWod />
         </div>
       </ApolloProvider>
     );

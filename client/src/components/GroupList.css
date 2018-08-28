@@ -1,0 +1,28 @@
+.groupList {
+  border: 5px solid blue;
+  display: flex;
+}
+.groupList > li {
+  list-style: none;
+  background-color: rgb(66, 66, 66);
+  color: rgb(243, 230, 50);
+  width: 500px;
+  height: 400px;
+  margin: 20px auto;
+  padding: 20px;
+  text-align: center;
+}
+.wodList {
+  padding: 0px;
+  align-items: center;
+}
+.wodList > li {
+  list-style: none;
+  line-height: 50px;
+  background-color: rgb(219, 161, 54);
+  color: white;
+
+  width: 80%;
+  height: 50px;
+  margin: 10px auto;
+}

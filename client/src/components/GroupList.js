@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 
 import { graphql } from 'react-apollo';
 import { getGroupsQuery } from '../queries/queries';
+import './GroupList.css';
 //import WodDetails from './WodDetails';
 
 class GroupList extends Component {
@@ -21,7 +22,7 @@ class GroupList extends Component {
         return (
           <li key={group.id}>
             {group.name}
-            <ul>
+            <ul className="wodList">
               {group.wods.map(wod => (
                 <li
                   key={wod.id}
@@ -40,7 +41,7 @@ class GroupList extends Component {
     console.log('WODS: ', this.props.data.groups);
     return (
       <div>
-        <ul>{this.displayGroups()}</ul>
+        <ul className="groupList">{this.displayGroups()}</ul>
         <li>GroupDetails component coming here!</li>
       </div>
     );

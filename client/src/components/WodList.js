@@ -11,7 +11,7 @@ class WodList extends Component {
 
   displayWods = () => {
     let data = this.props.data;
-    console.log('DATA: ', data);
+    console.log('WOD DATA: ', data);
 
     if (data.loading) {
       return <div>warming up...</div>;

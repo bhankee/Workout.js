@@ -19,10 +19,17 @@ class GroupList extends Component {
       return data.groups.map(group => {
         console.log('GROUP: ', group);
         return (
-          <li
-            key={group.id}
-            onClick={e => this.setState({ selected: group.id })}>
+          <li key={group.id}>
             {group.name}
+            <ul>
+              {group.wods.map(wod => (
+                <li
+                  key={wod.id}
+                  onClick={e => this.setState({ selected: wod.id })}>
+                  {wod.name}
+                </li>
+              ))}
+            </ul>
           </li>
         );
       });

@@ -16,6 +16,12 @@ const getGroupsQuery = gql`
     groups {
       name
       id
+      wods {
+        id
+        name
+        difficulty
+        movements
+      }
     }
   }
 `;
@@ -38,6 +44,7 @@ const getWodQuery = gql`
       movements
       difficulty
       group {
+        id
         name
         wods {
           name

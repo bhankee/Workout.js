@@ -3,6 +3,7 @@ import React, { Component } from 'react';
 import { graphql } from 'react-apollo';
 import { getGroupsQuery } from '../queries/queries';
 import './GroupList.css';
+import { Link } from '@reach/router';
 //import WodDetails from './WodDetails';
 
 class GroupList extends Component {
@@ -24,11 +25,13 @@ class GroupList extends Component {
             {group.name}
             <ul className="wodList">
               {group.wods.map(wod => (
-                <li
-                  key={wod.id}
-                  onClick={e => this.setState({ selected: wod.id })}>
-                  {wod.name}
-                </li>
+                <Link to={`/wod/${wod.id}`}>
+                  <li
+                    key={wod.id}
+                    onClick={e => this.setState({ selected: wod.id })}>
+                    {wod.name}
+                  </li>
+                </Link>
               ))}
             </ul>
           </li>
@@ -40,9 +43,8 @@ class GroupList extends Component {
     console.log('CURRENT PROPS: ', this.props);
     console.log('WODS: ', this.props.data.groups);
     return (
-      <div>
+      <div className="App">
         <ul className="groupList">{this.displayGroups()}</ul>
-        <li>GroupDetails component coming here!</li>
       </div>
     );
   }

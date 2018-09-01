@@ -16,7 +16,7 @@
   padding: 0px;
   align-items: center;
 }
-.wodList > li {
+.wodList li {
   list-style: none;
   line-height: 50px;
   background-color: rgb(219, 161, 54);

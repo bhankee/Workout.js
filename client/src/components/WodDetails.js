@@ -4,12 +4,14 @@ import { getWodQuery } from '../queries/queries';
 
 class WodDetails extends Component {
   displayWodDetails = () => {
+    console.log('HERREEE: ', this.props.data);
     const { wod } = this.props.data;
     if (wod) {
       return (
         <div>
           <h2>{wod.name}</h2>
           <p>{wod.difficulty}</p>
+          <p>{wod.movements}</p>
           <p>{wod.group.name}</p>
         </div>
       );
@@ -22,12 +24,4 @@ class WodDetails extends Component {
   }
 }
 
-export default graphql(getWodQuery, {
-  options: props => {
-    return {
-      variables: {
-        id: props.wodId
-      }
-    };
-  }
-})(WodDetails);
+export default graphql(getWodQuery)(WodDetails);

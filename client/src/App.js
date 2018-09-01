@@ -1,10 +1,12 @@
 import React, { Component } from 'react';
 import ApolloClient from 'apollo-boost';
 import { ApolloProvider } from 'react-apollo';
+import { Router, Link } from '@reach/router';
 
 //components
 
 import GroupList from './components/GroupList';
+import WodDetails from './components/WodDetails';
 //import AddWod from './components/AddWod';
 
 //apollo setup
@@ -16,11 +18,10 @@ class App extends Component {
   render() {
     return (
       <ApolloProvider client={client}>
-        <div className="App">
-          <h1> JS Wods</h1>
-
-          <GroupList />
-        </div>
+        <Router>
+          <GroupList path="/" />
+          <WodDetails path="/wod/:id" />
+        </Router>
       </ApolloProvider>
     );
   }

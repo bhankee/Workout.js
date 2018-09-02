@@ -1,11 +1,13 @@
 import React, { Component } from 'react';
 import { graphql } from 'react-apollo';
 import { getWodQuery } from '../queries/queries';
+import Timer from './Timer';
 
 class WodDetails extends Component {
   displayWodDetails = () => {
     console.log('HERREEE: ', this.props.data);
     const { wod } = this.props.data;
+    // switch statement for wod component
     if (wod) {
       return (
         <div>
@@ -13,6 +15,7 @@ class WodDetails extends Component {
           <p>{wod.difficulty}</p>
           <p>{wod.movements}</p>
           <p>{wod.group.name}</p>
+          <Timer />
         </div>
       );
     } else {

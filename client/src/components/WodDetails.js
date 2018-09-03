@@ -1,13 +1,14 @@
 import React, { Component } from 'react';
 import { graphql } from 'react-apollo';
 import { getWodQuery } from '../queries/queries';
-import Timer from './Timer';
+
 import Modal from './Modal';
 
 class WodDetails extends Component {
   state = {
     showModal: false
   };
+
   displayWodDetails = () => {
     console.log('HERREEE: ', this.props.data);
     const { wod } = this.props.data;
@@ -23,7 +24,6 @@ class WodDetails extends Component {
             ))}
           </div>
           <p>{wod.group.name}</p>
-          <Timer />
         </div>
       );
     } else {
@@ -33,12 +33,19 @@ class WodDetails extends Component {
 
   toggleModal = () => this.setState({ showModal: !this.state.showModal });
   render() {
+    const { wod } = this.props.data;
     const { showModal } = this.state;
     return (
       <div>
         <div>{this.displayWodDetails()} </div>
         <button onClick={this.toggleModal}>Start Wod</button>
-        {showModal ? <Modal toggleModal={this.toggleModal} /> : null}
+        {showModal ? (
+          <Modal
+            toggleModal={this.toggleModal}
+            wodName={wod.name}
+            movements={wod.movements}
+          />
+        ) : null}
       </div>
     );
   }

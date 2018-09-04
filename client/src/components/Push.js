@@ -39,10 +39,10 @@ class Push extends Component {
     const { movements } = this.props;
 
     return (
-      <div>
+      <div className="pushWrapper">
         [
-        {wods.map((thing, index) => (
-          <div key={index}>{thing}</div>
+        {wods.map((move, index) => (
+          <li key={index}>{move} ,</li>
         ))}
         ]<button onClick={this.startWod}>Start Workout</button>
       </div>

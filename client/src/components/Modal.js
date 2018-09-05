@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import Push from './Push';
+import Length from './Length';
 
 class Modal extends Component {
   wodChoice = () => {
@@ -7,6 +8,9 @@ class Modal extends Component {
     switch (wodName) {
       case 'push':
         return <Push movements={movements} />;
+        break;
+      case 'length':
+        return <Length movements={movements} />;
         break;
 
       default:

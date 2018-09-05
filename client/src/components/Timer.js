@@ -7,6 +7,7 @@ class Timer extends Component {
   };
 
   startTimer = () => {
+    console.log('SET TIMER RUNNNINGGGGG');
     let timer = setInterval(this.timer, 1000);
     this.setState({ timer });
   };
@@ -19,13 +20,20 @@ class Timer extends Component {
       this.setState({ secCount: this.state.secCount + 1 });
     }
   };
+
+  onClick = () => {
+    const { run } = this.props;
+    run();
+    this.startTimer();
+  };
   render() {
+    const { run } = this.props;
     return (
       <div className="App">
         <h3>
           {this.state.minCount}:{this.state.secCount}
         </h3>
-        <button onClick={this.startTimer} />
+        <button onClick={this.onClick}>Run Timer</button>
       </div>
     );
   }

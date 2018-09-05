@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import Timer from './Timer';
 
 import './Push.css';
 
@@ -44,7 +45,7 @@ class Push extends Component {
         {wods.map((move, index) => (
           <li key={index}>{move} ,</li>
         ))}
-        ]<button onClick={this.startWod}>Start Workout</button>
+        ]<Timer run={this.startWod} />
       </div>
     );
   }

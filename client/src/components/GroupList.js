@@ -25,7 +25,7 @@ class GroupList extends Component {
             {group.name}
             <ul className="wodList">
               {group.wods.map(wod => (
-                <Link to={`/wod/${wod.id}`}>
+                <Link className="wodLink" to={`/wod/${wod.id}`}>
                   <li
                     key={wod.id}
                     onClick={e => this.setState({ selected: wod.id })}>
@@ -44,6 +44,7 @@ class GroupList extends Component {
     console.log('WODS: ', this.props.data.groups);
     return (
       <div className="App">
+        <h1>WORKOUT JS</h1>
         <ul className="groupList">{this.displayGroups()}</ul>
       </div>
     );

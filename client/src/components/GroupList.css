@@ -1,26 +1,35 @@
+h1 {
+  color: rgb(0, 252, 252);
+  text-align: center;
+}
+
 .groupList {
-  border: 5px solid blue;
   display: flex;
 }
 .groupList > li {
   list-style: none;
-  background-color: rgb(66, 66, 66);
-  color: rgb(243, 230, 50);
+
+  background-color: #1c1c1c;
+  border: 2px solid #1b3f38;
+  color: white;
+  font-size: 36px;
   width: 500px;
   height: 400px;
   margin: 20px auto;
   padding: 20px;
   text-align: center;
 }
+.wodLink {
+  text-decoration: none;
+}
 .wodList {
   padding: 0px;
   align-items: center;
 }
 .wodList li {
-  list-style: none;
   line-height: 50px;
-  background-color: rgb(219, 161, 54);
-  color: white;
+  background-color: #373737;
+  color: rgb(0, 252, 252);
 
   width: 80%;
   height: 50px;

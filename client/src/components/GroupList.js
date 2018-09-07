@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import Kettlebell from './Kettlebell';
 
 import { graphql } from 'react-apollo';
 import { getGroupsQuery } from '../queries/queries';
@@ -45,6 +46,7 @@ class GroupList extends Component {
     return (
       <div className="App">
         <h1>WORKOUT JS</h1>
+        <Kettlebell />
         <ul className="groupList">{this.displayGroups()}</ul>
       </div>
     );

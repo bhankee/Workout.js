@@ -1,0 +1,9 @@
+.kettlebellIcon {
+  width: 10%;
+  height: auto;
+  color: pink;
+  margin-right: 10px;
+}
+.wodLink:hover svg.kettlebellIcon path {
+  fill: #e4b639;
+}

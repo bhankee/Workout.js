@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import ApolloClient from 'apollo-boost';
 import { ApolloProvider } from 'react-apollo';
-import { Router, Link } from '@reach/router';
+import { Router } from '@reach/router';
 import './App.css';
 
 //components

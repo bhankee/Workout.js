@@ -1,9 +1,11 @@
+import bg from '../images/pattern.png';
 import React, { Component } from 'react';
 import Kettlebell from './Kettlebell';
 
 import { graphql } from 'react-apollo';
 import { getGroupsQuery } from '../queries/queries';
 import './GroupList.css';
+
 import { Link } from '@reach/router';
 //import WodDetails from './WodDetails';
 
@@ -19,18 +21,23 @@ class GroupList extends Component {
     if (data.loading) {
       return <div>warming up...</div>;
     } else {
+      console.log();
       return data.groups.map(group => {
         console.log('GROUP: ', group);
         return (
-          <li key={group.id}>
+          <li key={group.id} className="groupLi">
             {group.name}
             <ul className="wodList">
               {group.wods.map(wod => (
                 <Link className="wodLink" to={`/wod/${wod.id}`}>
                   <li
                     key={wod.id}
+                    className="wodLi"
                     onClick={e => this.setState({ selected: wod.id })}>
-                    {wod.name}
+                    <span>
+                      <Kettlebell />
+                    </span>
+                    .{wod.name}
                   </li>
                 </Link>
               ))}
@@ -44,9 +51,9 @@ class GroupList extends Component {
     console.log('CURRENT PROPS: ', this.props);
     console.log('WODS: ', this.props.data.groups);
     return (
-      <div className="App">
+      <div className="App" style={{ backgroundImage: `url(${bg}) ` }}>
         <h1>WORKOUT JS</h1>
-        <Kettlebell />
+
         <ul className="groupList">{this.displayGroups()}</ul>
       </div>
     );

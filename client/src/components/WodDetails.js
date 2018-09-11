@@ -3,6 +3,7 @@ import { graphql } from 'react-apollo';
 import { getWodQuery } from '../queries/queries';
 
 import Modal from './Modal';
+import './WodDetails.css';
 
 class WodDetails extends Component {
   state = {
@@ -16,14 +17,21 @@ class WodDetails extends Component {
     if (wod) {
       return (
         <div>
-          <h2>{wod.name}</h2>
-          <p>{wod.difficulty}</p>
-          <div>
+          <div className="containerFlexOne">
+            <h2 className="wodName">
+              <span className="array">Array</span>.
+              {wod.name.charAt(0).toUpperCase() + wod.name.slice(1)}
+            </h2>
+            <h3 className="wodDesc">This is how .push works</h3>
+          </div>
+
+          <p>Difficulty: {wod.difficulty}</p>
+          <div className="movesContainer">
+            Movements:
             {wod.movements.map(move => (
-              <p>{move}</p>
+              <div>{move}</div>
             ))}
           </div>
-          <p>{wod.group.name}</p>
         </div>
       );
     } else {

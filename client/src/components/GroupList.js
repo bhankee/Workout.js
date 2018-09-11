@@ -8,6 +8,10 @@ import './GroupList.css';
 
 import { Link } from '@reach/router';
 //import WodDetails from './WodDetails';
+const stickyBackground = {
+  background: `url(${bg})`,
+  backgroundAttachment: 'fixed'
+};
 
 class GroupList extends Component {
   state = {
@@ -51,7 +55,7 @@ class GroupList extends Component {
     console.log('CURRENT PROPS: ', this.props);
     console.log('WODS: ', this.props.data.groups);
     return (
-      <div className="App" style={{ backgroundImage: `url(${bg}) ` }}>
+      <div className="app" style={stickyBackground}>
         <h1>WORKOUT JS</h1>
 
         <ul className="groupList">{this.displayGroups()}</ul>

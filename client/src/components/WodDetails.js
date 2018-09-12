@@ -1,9 +1,14 @@
 import React, { Component } from 'react';
 import { graphql } from 'react-apollo';
 import { getWodQuery } from '../queries/queries';
-
+import bg from '../images/pattern.png';
 import Modal from './Modal';
 import './WodDetails.css';
+
+const stickyBackground = {
+  background: `url(${bg})`,
+  backgroundAttachment: 'fixed'
+};
 
 class WodDetails extends Component {
   state = {
@@ -16,16 +21,14 @@ class WodDetails extends Component {
     // switch statement for wod component
     if (wod) {
       return (
-        <div>
-          <div className="containerFlexOne">
-            <h2 className="wodName">
-              <span className="array">Array</span>.
-              {wod.name.charAt(0).toUpperCase() + wod.name.slice(1)}
-            </h2>
-            <h3 className="wodDesc">This is how .push works</h3>
-          </div>
+        <div className="containerFlexOne">
+          <h2 className="wodName">
+            <span className="array">Array</span>.
+            {wod.name.charAt(0).toUpperCase() + wod.name.slice(1)}
+          </h2>
+          <h3 className="wodDesc">This is how .push works</h3>
 
-          <p>Difficulty: {wod.difficulty}</p>
+          <div className="difficulty">Difficulty: {wod.difficulty}</div>
           <div className="movesContainer">
             Movements:
             {wod.movements.map(move => (
@@ -44,9 +47,14 @@ class WodDetails extends Component {
     const { wod } = this.props.data;
     const { showModal } = this.state;
     return (
-      <div>
-        <div>{this.displayWodDetails()} </div>
-        <button onClick={this.toggleModal}>Start Wod</button>
+      <div className="detailsContainer" style={stickyBackground}>
+        <div>{this.displayWodDetails()}</div>
+        <div className="buttonWrap">
+          <button className="startBtn" onClick={this.toggleModal}>
+            Start Wod
+          </button>
+        </div>
+
         {showModal ? (
           <Modal
             toggleModal={this.toggleModal}

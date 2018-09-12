@@ -1,17 +1,25 @@
 .containerFlexOne {
   display: flex;
+  flex-wrap: wrap;
+  background-color: rgba(175, 178, 183, 0.3);
+  border-radius: 20px;
+  color: white;
+  padding: 20px;
 }
 
 .wodName {
   color: orange;
+  font-size: 48px;
   letter-spacing: 2px;
   text-align: center;
   order: 1;
+  margin: 60px auto;
   flex-basis: 30%;
 }
 
 .wodDesc {
   text-align: center;
+  margin: 60px auto;
   order: 2;
   flex-basis: 70%;
 }
@@ -19,18 +27,44 @@
   color: black;
 }
 
+.difficulty {
+  order: 3;
+  flex-basis: 70%;
+
+  margin: 60px;
+}
+
 .movesContainer {
   display: flex;
+  order: 4;
+  flex-basis: 70%;
   flex-wrap: wrap;
-  margin: 40px auto;
-  border: 3px solid blue;
+  margin: 60px;
 }
 .movesContainer > * {
-  background-color: aqua;
+  background-color: #0e7b8e;
   width: auto;
   padding: 5px;
-  margin: 5px;
+  color: #f1db0f;
   border-radius: 12px;
   text-align: center;
   flex-basis: 150px;
+  margin: 0 5px 0 5px;
+}
+
+.detailsContainer {
+  height: 100vh;
+  margin: 0;
+}
+
+.buttonWrap {
+  text-align: center;
+}
+
+.startBtn {
+  background-color: #f1db0f;
+  padding: 12px;
+  border-radius: 12px;
+  text-align: center;
+  margin: 50px auto;
 }

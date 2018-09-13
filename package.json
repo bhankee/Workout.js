@@ -1,0 +1,25 @@
+{
+  "name": "workout_js",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "install": "(cd client && yarn) && (cd server && yarn)",
+    "start": "concurrently \"cd client && PORT=3000 yarn start\" \"cd server && PORT=3001 yarn start\""
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/bhankee/Workout.js.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/bhankee/Workout.js/issues"
+  },
+  "homepage": "https://github.com/bhankee/Workout.js#readme",
+  "dependencies": {
+    "concurrently": "^4.0.1"
+  }
+}

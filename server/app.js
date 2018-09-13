@@ -11,6 +11,8 @@ const app = express();
 const PORT = process.env.PORT || 5000;
 //allow cross-origin requests
 app.use(cors());
+// Priority serve any static files.
+app.use(express.static(path.resolve(__dirname, '../client/build')));
 
 mongoose.connect(
   `mongodb://bhankee:${process.env.MONGO_DB}@ds227352.mlab.com:27352/workoutjs`

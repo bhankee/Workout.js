@@ -1,6 +1,9 @@
 {
   "name": "workout_js",
   "version": "1.0.0",
+  "engines": {
+    "node": "8.2.0"
+  },
   "description": "",
   "main": "index.js",
   "scripts": {

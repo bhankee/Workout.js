@@ -20,6 +20,6 @@ mongoose.connection.once('open', () => {
 
 app.use('/graphql', graphqlHTTP({ schema, graphiql: true }));
 
-app.listen(8000, () => {
-  console.log('Listening for requests on PORT 8000!');
+app.listen(5000, () => {
+  console.log('Listening for requests on PORT 5000!');
 });

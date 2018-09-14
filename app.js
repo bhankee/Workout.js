@@ -8,7 +8,7 @@ const path = require('path');
 
 const app = express();
 
-const PORT = process.env.PORT || 5000;
+const PORT = process.env.PORT || 8000;
 //allow cross-origin requests
 app.use(cors());
 // Priority serve any static files.
@@ -34,5 +34,5 @@ app.get('*', (req, res) => {
 app.use('/graphql', graphqlHTTP({ schema, graphiql: true }));
 
 app.listen(PORT, () => {
-  console.log('Listening for requests on PORT 5000!');
+  console.log('Listening for requests on PORT 8000!');
 });

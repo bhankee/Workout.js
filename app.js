@@ -15,7 +15,11 @@ app.use(cors());
 //app.use(express.static(path.resolve(__dirname, '../client/build')));
 
 mongoose.connect(
-  `mongodb://bhankee:${process.env.MONGO_DB}@ds227352.mlab.com:27352/workoutjs`
+  process.env.MONGODB_URI ||
+    `mongodb://bhankee:${
+      process.env.MONGO_DB
+    }@ds227352.mlab.com:27352/workoutjs`,
+  { useNewUrlParser: true }
 );
 mongoose.connection.once('open', () => {
   console.log('connected to database!');

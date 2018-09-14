@@ -12,7 +12,7 @@ import WodDetails from './components/WodDetails';
 
 //apollo setup
 const client = new ApolloClient({
-  uri: 'http://localhost:8000/graphql'
+  uri: '/graphql'
 });
 
 class App extends Component {

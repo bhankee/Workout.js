@@ -8,7 +8,7 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "cd server && node app.js\"",
+    "start": "node app.js",
     "heroku-postbuild": "cd client && npm install && npm run build"
   },
   "repository": {
@@ -23,6 +23,14 @@
   },
   "homepage": "https://github.com/bhankee/Workout.js#readme",
   "dependencies": {
-    "concurrently": "^4.0.1"
+    "concurrently": "^4.0.1",
+    "cors": "^2.8.4",
+    "dotenv": "^6.0.0",
+    "express": "^4.16.3",
+    "express-graphql": "^0.6.12",
+    "graphql": "^14.0.2",
+    "lodash": "^4.17.11",
+    "mongoose": "^5.2.14",
+    "path": "^0.12.7"
   }
 }

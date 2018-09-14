@@ -5,7 +5,6 @@ const schema = require('./schema/schema');
 const mongoose = require('mongoose');
 const cors = require('cors');
 const path = require('path');
-console.log('INSIDE APP. JS -------------------------------');
 
 const app = express();
 

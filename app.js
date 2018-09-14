@@ -13,12 +13,11 @@ const PORT = process.env.PORT || 8000;
 app.use(cors());
 // Priority serve any static files.
 //app.use(express.static(path.resolve(__dirname, '../client/build')));
-
-mongoose.connect(
+const MONGODB_URI =
   process.env.MONGODB_URI ||
-    `mongodb://bhankee:${
-      process.env.MONGO_DB
-    }@ds227352.mlab.com:27352/workoutjs`,
+  `mongodb://bhankee:${process.env.MONGO_DB}@ds227352.mlab.com:27352/workoutjs`;
+mongoose.connect(
+  MONGODB_URI,
   { useNewUrlParser: true }
 );
 mongoose.connection.once('open', () => {

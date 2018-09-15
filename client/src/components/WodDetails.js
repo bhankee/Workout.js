@@ -14,6 +14,23 @@ class WodDetails extends Component {
   state = {
     showModal: false
   };
+  warmup = () => {
+    const { wod } = this.props.data;
+    if (wod.name === 'push') {
+      return `
+      Push is part of the Array API that when called on an array adds an element to the end of that array. 
+      
+      EXAMPLE
+       let arr = [1,2,3]
+      arr.push(4) 
+      console.log(arr) = [1,2,3,4]
+      `;
+    } else {
+      return `
+      other
+      `;
+    }
+  };
 
   displayWodDetails = () => {
     console.log('HERREEE: ', this.props.data);
@@ -22,18 +39,23 @@ class WodDetails extends Component {
     if (wod) {
       return (
         <div className="containerFlexOne">
-          <h2 className="wodName">
-            <span className="array">Array</span>.
-            {wod.name.charAt(0).toUpperCase() + wod.name.slice(1)}
-          </h2>
-          <h3 className="wodDesc">This is how .push works</h3>
+          <div className="wodName">
+            <h2>
+              <span className="array">Array.</span>
+              {wod.name.charAt(0).toUpperCase() + wod.name.slice(1)}
+            </h2>
+            <div className="difficulty">Difficulty: {wod.difficulty}</div>
+            <div className="movesContainer">
+              Movements:
+              {wod.movements.map(move => (
+                <div>{move}</div>
+              ))}
+            </div>
+          </div>
+          <div className="wodDesc">
+            <h2>WARM UP</h2>
 
-          <div className="difficulty">Difficulty: {wod.difficulty}</div>
-          <div className="movesContainer">
-            Movements:
-            {wod.movements.map(move => (
-              <div>{move}</div>
-            ))}
+            <div className="warmUp">{this.warmup()}</div>
           </div>
         </div>
       );

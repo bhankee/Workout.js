@@ -2,44 +2,52 @@
   display: flex;
   flex-wrap: wrap;
   background-color: rgba(175, 178, 183, 0.3);
-  border-radius: 20px;
   color: white;
-  padding: 20px;
+  padding: 40px;
 }
 
 .wodName {
   color: orange;
-  font-size: 48px;
   letter-spacing: 2px;
-  text-align: center;
-  order: 1;
   margin: 60px auto;
-  flex-basis: 30%;
+  flex-basis: 50%;
+}
+.wodName > h2 {
+  font-size: 36px;
 }
 
 .wodDesc {
   text-align: center;
+  background-color: rgba(175, 178, 183, 0.05);
   margin: 60px auto;
   order: 2;
-  flex-basis: 70%;
+  flex-basis: 50%;
 }
+.wodDesc > h2 {
+  margin-bottom: 0;
+  color: orange;
+}
+.warmUp {
+  white-space: pre-wrap;
+  letter-spacing: 1px;
+  line-height: 30px;
+}
+
 .array {
-  color: black;
+  color: #a3a3a3;
 }
 
 .difficulty {
   order: 3;
   flex-basis: 70%;
-
-  margin: 60px;
+  margin: 15px auto;
 }
 
 .movesContainer {
   display: flex;
   order: 4;
-  flex-basis: 70%;
+  flex-basis: 100%;
   flex-wrap: wrap;
-  margin: 60px;
 }
 .movesContainer > * {
   background-color: #0e7b8e;
@@ -59,6 +67,7 @@
 
 .buttonWrap {
   text-align: center;
+  background-color: rgba(175, 178, 183, 0.3);
 }
 
 .startBtn {

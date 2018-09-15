@@ -10,11 +10,12 @@ class Push extends Component {
   };
 
   startWod = () => {
+    this.updateRenderedThings();
     this.pushWod();
   };
 
   pushWod = () => {
-    this.timer = setTimeout(this.updateRenderedThings, 10000);
+    this.timer = setTimeout(this.updateRenderedThings, 30000);
   };
 
   updateRenderedThings = () => {
@@ -46,11 +47,11 @@ class Push extends Component {
         </div>
 
         <div className="movements">
-          [
+          {`[ `}
           {wods.map((move, index) => (
-            <li key={index}>{move} ,</li>
+            <li key={index}>{move}, </li>
           ))}
-          ]
+          {` ]`}
         </div>
       </div>
     );

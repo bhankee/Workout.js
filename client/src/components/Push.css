@@ -1,16 +1,15 @@
 .pushWrapper {
-  display: flex;
+  text-align: center;
 }
 
 .movements > li {
-  margin: 0 20px;
   list-style: none;
   display: inline;
 }
 
 .movements {
   align-self: flex-end;
-  width: 75%;
+
   color: white;
   font-size: 36px;
 }

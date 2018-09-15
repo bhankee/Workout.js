@@ -1,0 +1,23 @@
+.modalContainer {
+  background-color: #0e7b8e;
+  z-index: 10;
+  position: fixed;
+  width: 75%;
+  height: 500px;
+  padding: 20px;
+  border-radius: 10px;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+h1 {
+  color: #fd941f;
+}
+
+.modalBtn {
+  background-color: #f1db0f;
+  padding: 12px;
+  border-radius: 12px;
+  text-align: center;
+  margin: 50px auto;
+}

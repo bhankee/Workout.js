@@ -56,7 +56,7 @@ class GroupList extends Component {
     console.log('WODS: ', this.props.data.groups);
     return (
       <div className="app" style={stickyBackground}>
-        <h1>WORKOUT.JS</h1>
+        <h1>WORKOUT JS</h1>
 
         <ul className="groupList">{this.displayGroups()}</ul>
       </div>

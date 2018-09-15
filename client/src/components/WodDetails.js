@@ -51,7 +51,7 @@ class WodDetails extends Component {
         <div>{this.displayWodDetails()}</div>
         <div className="buttonWrap">
           <button className="startBtn" onClick={this.toggleModal}>
-            Start Wod
+            Open Workout
           </button>
         </div>
 

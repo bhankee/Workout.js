@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import './Timer.css';
 
 class Timer extends Component {
   state = {
@@ -30,10 +31,12 @@ class Timer extends Component {
     const { run } = this.props;
     return (
       <div className="App">
+        <button onClick={this.onClick} className="modalBtn">
+          Start Workout
+        </button>
         <h3>
           {this.state.minCount}:{this.state.secCount}
         </h3>
-        <button onClick={this.onClick}>Run Timer</button>
       </div>
     );
   }

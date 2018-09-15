@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import Push from './Push';
 import Length from './Length';
+import './Modal.css';
 
 class Modal extends Component {
   wodChoice = () => {
@@ -21,11 +22,13 @@ class Modal extends Component {
   render() {
     const { toggleModal } = this.props;
     return (
-      <div>
-        <h1>MODAL</h1>
+      <div className="modalContainer">
+        <h1>Let's Go</h1>
         {this.wodChoice()}
 
-        <button onClick={toggleModal}>Close Wod</button>
+        <button onClick={toggleModal} className="modalBtn">
+          Close Workout
+        </button>
       </div>
     );
   }

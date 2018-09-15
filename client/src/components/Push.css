@@ -2,7 +2,7 @@
   display: flex;
 }
 
-li {
+.movements > li {
   margin: 0 20px;
   list-style: none;
   display: inline;

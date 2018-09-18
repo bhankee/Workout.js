@@ -12,12 +12,13 @@ class Length extends Component {
   };
 
   startWod = () => {
+    this.updateRenderedThings();
     this.pushWod();
     console.log('MOVEMENTS:', this.props.movements);
   };
 
   pushWod = () => {
-    this.timer = setTimeout(this.updateRenderedThings, 5000);
+    this.timer = setTimeout(this.updateRenderedThings, 20000);
   };
 
   updateRenderedThings = () => {
@@ -55,10 +56,17 @@ class Length extends Component {
 
     return (
       <div className="pushWrapper">
-        <h2>{currentString}</h2>
-        <h2>{currentLength ? currentLength.length : null}</h2>
+        <h3>
+          Perform each move the number of the length times (number dsiplayed
+          under string is length){' '}
+        </h3>
 
         <Timer run={this.startWod} />
+        <h2>
+          {currentString}
+          .length()
+        </h2>
+        <h2>{currentLength ? currentLength.length : null}</h2>
       </div>
     );
   }

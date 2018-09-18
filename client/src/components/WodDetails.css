@@ -39,8 +39,8 @@
 
 .difficulty {
   order: 3;
-  flex-basis: 70%;
-  margin: 15px auto;
+  flex-basis: 70;
+  margin: 15px auto 25px auto;
 }
 
 .movesContainer {

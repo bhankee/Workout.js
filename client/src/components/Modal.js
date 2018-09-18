@@ -8,10 +8,10 @@ class Modal extends Component {
     let { wodName, movements } = this.props;
     switch (wodName) {
       case 'push':
-        return <Push movements={movements} />;
+        return <Push movements={movements} time="30" />;
         break;
       case 'length':
-        return <Length movements={movements} />;
+        return <Length movements={movements} time="20" />;
         break;
 
       default:
@@ -23,7 +23,6 @@ class Modal extends Component {
     const { toggleModal } = this.props;
     return (
       <div className="modalContainer">
-        <h1>Let's Go</h1>
         {this.wodChoice()}
 
         <button onClick={toggleModal} className="modalBtn">

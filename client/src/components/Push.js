@@ -38,10 +38,11 @@ class Push extends Component {
 
   render() {
     const { wods } = this.state;
-    const { movements } = this.props;
+    const { movements, time } = this.props;
 
     return (
       <div className="pushWrapper">
+        <h3>Perform each move for exactly {time} seconds </h3>
         <div>
           <Timer run={this.startWod} />
         </div>

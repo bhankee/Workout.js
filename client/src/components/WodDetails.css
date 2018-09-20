@@ -34,7 +34,7 @@
 }
 
 .array {
-  color: #a3a3a3;
+  color: white;
 }
 
 .difficulty {
@@ -50,11 +50,11 @@
   flex-wrap: wrap;
 }
 .movesContainer > * {
-  background-color: #0e7b8e;
+  border: 3px solid orange;
   width: auto;
   padding: 5px;
-  color: #f1db0f;
-  border-radius: 12px;
+  color: white;
+  border-radius: 19px;
   text-align: center;
   flex-basis: 150px;
   margin: 0 5px 0 5px;

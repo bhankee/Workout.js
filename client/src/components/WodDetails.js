@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { graphql } from 'react-apollo';
 import { getWodQuery } from '../queries/queries';
-import bg from '../images/pattern.png';
+import bg from '../images/pattern_blue.png';
 import Modal from './Modal';
 import './WodDetails.css';
 

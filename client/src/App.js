@@ -3,6 +3,7 @@ import ApolloClient from 'apollo-boost';
 import { ApolloProvider } from 'react-apollo';
 import { Router } from '@reach/router';
 import './App.css';
+import { ParallaxProvider } from 'react-scroll-parallax';
 
 //components
 
@@ -13,17 +14,19 @@ import WodDetails from './components/WodDetails';
 //apollo setup
 const client = new ApolloClient({
   // if in dev uri: 'http://localhost:8000/graphql'
-  uri: 'http://localhost:8000/graphql'
+  uri: '/graphql'
 });
 
 class App extends Component {
   render() {
     return (
       <ApolloProvider client={client}>
-        <Router>
-          <GroupList path="/" />
-          <WodDetails path="/wod/:id" />
-        </Router>
+        <ParallaxProvider>
+          <Router>
+            <GroupList path="/" />
+            <WodDetails path="/wod/:id" />
+          </Router>
+        </ParallaxProvider>
       </ApolloProvider>
     );
   }

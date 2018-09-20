@@ -19,7 +19,6 @@ class Push extends Component {
   };
 
   updateRenderedThings = () => {
-    console.log('UPDATING');
     const { itemsRendered, wods } = this.state;
     const { movements } = this.props;
     const updatedState = {
@@ -28,7 +27,7 @@ class Push extends Component {
     };
 
     this.setState(updatedState);
-    console.log('WOD STATE: ', wods);
+
     if (updatedState.itemsRendered < movements.length) {
       this.pushWod();
     } else {

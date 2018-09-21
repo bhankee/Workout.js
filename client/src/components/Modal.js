@@ -26,7 +26,7 @@ class Modal extends Component {
         {this.wodChoice()}
 
         <button onClick={toggleModal} className="modalBtn">
-          Close Workout
+          Close
         </button>
       </div>
     );

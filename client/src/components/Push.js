@@ -10,17 +10,18 @@ class Push extends Component {
   };
 
   startWod = () => {
-    this.updateRenderedThings();
     this.pushWod();
   };
 
   pushWod = () => {
-    this.timer = setTimeout(this.updateRenderedThings, 30000);
+    this.updateRenderedThings();
+    this.timer = setInterval(this.updateRenderedThings, 30000);
   };
 
   updateRenderedThings = () => {
     const { itemsRendered, wods } = this.state;
     const { movements } = this.props;
+
     const updatedState = {
       wods: wods.concat(movements[itemsRendered]),
       itemsRendered: itemsRendered + 1
@@ -28,9 +29,7 @@ class Push extends Component {
 
     this.setState(updatedState);
 
-    if (updatedState.itemsRendered < movements.length) {
-      this.pushWod();
-    } else {
+    if (updatedState.itemsRendered === movements.length) {
       clearTimeout(this.timer);
     }
   };
@@ -38,6 +37,7 @@ class Push extends Component {
   render() {
     const { wods } = this.state;
     const { movements, time } = this.props;
+    console.log('WOD MATCH ME--------', wods);
 
     return (
       <div className="pushWrapper">
@@ -49,7 +49,9 @@ class Push extends Component {
         <div className="movements">
           {`[ `}
           {wods.map((move, index) => (
-            <li key={index}>{move}, </li>
+            <li key={index} className={wods[index] == move ? 'activeLi' : null}>
+              {move},{' '}
+            </li>
           ))}
           {` ]`}
         </div>

@@ -1,5 +1,5 @@
 .modalContainer {
-  background-color: #36c1f4;
+  background-color: #0b3141;
   z-index: 10;
   position: fixed;
   text-align: center;
@@ -16,7 +16,10 @@ h1 {
 }
 
 .modalBtn {
+  font: 1em Helvetica, sans-serif;
+  font-size: 18px;
   background-color: #f1db0f;
+  width: 20%;
   padding: 12px;
   border-radius: 12px;
   text-align: center;

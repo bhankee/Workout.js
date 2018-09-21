@@ -8,13 +8,13 @@ class Timer extends Component {
   };
 
   startTimer = () => {
-    console.log('SET TIMER RUNNNINGGGGG');
+    //console.log('SET TIMER RUNNNINGGGGG');
     let timer = setInterval(this.timer, 1000);
     this.setState({ timer });
   };
 
   timer = () => {
-    console.log('TIMER: ', this.state.secCount, this.state.minCount);
+    //console.log('TIMER: ', this.state.secCount, this.state.minCount);
     if (this.state.secCount === 59) {
       this.setState({ secCount: 0, minCount: this.state.minCount + 1 });
     } else {

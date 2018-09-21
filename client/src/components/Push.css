@@ -1,10 +1,47 @@
 .pushWrapper {
   text-align: center;
 }
+h3 {
+  color: white;
+}
 
 .movements > li {
   list-style: none;
   display: inline;
+  font-size: 36px;
+}
+.activeLi {
+  font-size: 42px;
+  -webkit-animation: mymove infinite; /* Safari 4.0 - 8.0 */
+  -webkit-animation-duration: 3s; /* Safari 4.0 - 8.0 */
+  animation: mymove;
+  animation-duration: 3s;
+  animation-iteration-count: 10;
+}
+
+/* Safari 4.0 - 8.0 */
+@-webkit-keyframes mymove {
+  0% {
+    color: white;
+  }
+  50% {
+    color: #fb6e22;
+  }
+  100% {
+    color: white;
+  }
+}
+
+@keyframes mymove {
+  0% {
+    color: white;
+  }
+  50% {
+    color: #fb6e22;
+  }
+  100% {
+    color: white;
+  }
 }
 
 .movements {

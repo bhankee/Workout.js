@@ -1,6 +1,7 @@
 import bg from '../images/pattern_blue.png';
 import React, { Component } from 'react';
 import Kettlebell from './Kettlebell';
+import Intro from './Intro';
 
 import { graphql } from 'react-apollo';
 import { getGroupsQuery } from '../queries/queries';
@@ -42,6 +43,7 @@ class GroupList extends Component {
                     onClick={e => this.setState({ selected: wod.id })}>
                     <span>
                       <Kettlebell />.{wod.name}
+                      ()
                     </span>
                   </li>
                 </Link>
@@ -53,12 +55,10 @@ class GroupList extends Component {
     }
   };
   render() {
-    console.log('CURRENT PROPS: ', this.props);
-    console.log('WODS: ', this.props.data.groups);
     return (
       <div className="app" style={stickyBackground}>
         <h1>WORKOUT JS</h1>
-
+        <Intro />
         {this.displayGroups()}
       </div>
     );

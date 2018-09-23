@@ -8,10 +8,11 @@ h3 {
 .movements > li {
   list-style: none;
   display: inline;
-  font-size: 36px;
+  font-size: 56px;
 }
 .activeLi {
   font-size: 42px;
+
   -webkit-animation: mymove infinite; /* Safari 4.0 - 8.0 */
   -webkit-animation-duration: 3s; /* Safari 4.0 - 8.0 */
   animation: mymove;
@@ -35,12 +36,14 @@ h3 {
 @keyframes mymove {
   0% {
     color: white;
+    font-size: 82px;
   }
   50% {
     color: #fb6e22;
   }
   100% {
     color: white;
+    font-size: 82px;
   }
 }
 

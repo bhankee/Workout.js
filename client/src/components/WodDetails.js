@@ -38,12 +38,14 @@ class WodDetails extends Component {
     // switch statement for wod component
     if (wod) {
       return (
-        <div className="containerFlexOne">
-          <div className="wodName">
+        <div>
+          <div className="containerFlexOne">
             <h2>
               <span className="array">Array.</span>
               {wod.name.charAt(0).toUpperCase() + wod.name.slice(1)}
             </h2>
+          </div>
+          <div className="infoContainer">
             <div className="difficulty">Difficulty: {wod.difficulty}</div>
             <div className="movesContainer">
               Movements:
@@ -52,10 +54,17 @@ class WodDetails extends Component {
               ))}
             </div>
           </div>
-          <div className="wodDesc">
-            <h2>WARM UP</h2>
+          <div className="containerFlexTwo">
+            <div className="wodDesc">
+              <h2>WARM UP</h2>
 
-            <div className="warmUp">{this.warmup()}</div>
+              <div>{this.warmup()}</div>
+            </div>
+            <div className="buttonWrap">
+              <button className="startBtn" onClick={this.toggleModal}>
+                Open Workout
+              </button>
+            </div>
           </div>
         </div>
       );
@@ -71,11 +80,6 @@ class WodDetails extends Component {
     return (
       <div className="detailsContainer" style={stickyBackground}>
         <div>{this.displayWodDetails()}</div>
-        <div className="buttonWrap">
-          <button className="startBtn" onClick={this.toggleModal}>
-            Open Workout
-          </button>
-        </div>
 
         {showModal ? (
           <Modal
